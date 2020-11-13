@@ -1,8 +1,12 @@
 package com.androidjavapoint.splashscreen;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -10,9 +14,16 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Start home activity
-        startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+                finish();
+            }
+        }, 20000);
+
 
         // close splash activity
-        finish();
+
     }
 }
